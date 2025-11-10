@@ -1,0 +1,129 @@
+[project]
+site_name = "GPT服务开发与管理文档"
+variant = "modern"
+site_author = "学生助理开发小组"
+copyright = "Copyright &copy; 2024-2025 学生助理开发小组"
+docs_dir = "docs"
+repo_url = "https://github.com/CUHKSZ-ITSO-Dev/ChatGPT-Azure"
+repo_name = "CUHKSZ-ITSO-Dev/Docs"
+edit_uri = "edit/main/dev/docs/"
+extra_javascript = [
+    "javascripts/mathjax.js",
+    "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "切换到明亮模式"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "teal"
+saccent = "light blue"
+toggle.icon = "lucide/sun"
+toggle.name = "切换到黑暗模式"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "black"
+accent = "red"
+toggle.icon = "lucide/moon"
+toggle.name = "跟随系统"
+
+[project.theme]
+language = "zh"
+features = [
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.instant.progress",
+    "navigation.tracking",
+    "navigation.tabs",
+    "navigation.top",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.footer",
+
+    "toc.integrate",
+    "toc.follow",
+
+    "search.highlight",
+
+    "content.action.edit",
+    "content.action.view",
+    "content.tooltips",
+    "content.footnote.tooltips",
+    "content.code.copy",
+    "content.code.select",
+    "content.code.annotate"
+]
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "/chat/about"
+name = "Student Assistant Development Group"
+
+# 代码块注解允许在不允许定义的地方定义（如字符串中）
+[project.extra.annotate]
+json = [".s2"] 
+
+# md_in_html
+[project.markdown_extensions.md_in_html]
+
+# Mermaid Diagrams 支持
+[project.markdown_extensions.pymdownx.superfences.custom_fences]
+name = "mermaid"
+class = "mermaid"
+format = "pymdownx.superfences.fence_code_format"
+
+# Admonitions 警告组件
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.superfences]
+
+# latex
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true
+
+# task list
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+clickable_checkbox = true
+
+# tooltips
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.pymdownx.snippets]
+
+# emoji支持
+[project.markdown_extensions.pymdownx.emoji]
+emoji_index = "zensical.extensions.emoji.twemoji" 
+emoji_generator = "zensical.extensions.emoji.to_svg"
+
+# 文本高亮&format
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.keys]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.tilde]
+
+# tables
+[project.markdown_extensions.tables]
+
+# footnotes
+[project.markdown_extensions.footnotes]
+
+# Content Tabs
+[project.markdown_extensions.superfences]
+[project.markdown_extensions.tabbed]
+alternate_style = true
+
+# Code Blocks 支持
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+line_spans = "__span"
+pygments_lang_class = true
+[project.markdown_extensions.pymdownx.inlinehilite]
+# [project.markdown_extensions.pymdownx.snippets]
+# [project.markdown_extensions.pymdownx.superfences]

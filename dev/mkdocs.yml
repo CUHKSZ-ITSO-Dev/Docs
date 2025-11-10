@@ -1,0 +1,214 @@
+site_name: GPT服务开发与管理文档
+dev_addr: 127.0.0.1:5545
+copyright: Copyright &copy; 2024-2025 学生助理开发小组
+
+docs_dir: "docs"
+site_url: "https://ai.cuhk.edu.cn/docs/dev/"
+repo_url: https://github.com/cuhksz-itso-dev/docs
+repo_name: CUHKSZ-ITSO-Dev/Docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: zh
+  icon:
+    annotation: material/arrow-right-circle
+    repo: fontawesome/brands/git-alt
+    edit: material/pencil 
+    view: material/eye
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.footer
+    - navigation.path
+    - toc.follow
+    - navigation.top
+    - navigation.sections
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - content.tabs.link
+    - content.code.copy
+    - content.action.edit
+    - header.autohide
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 自动调整
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: teal
+      accent: light blue
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: 明亮
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: black
+      accent: red
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: 黑暗
+
+extra:
+  generator: false
+  version:
+    provider: mike
+
+plugins:
+  - search:
+      lang:
+        - en
+        - ja
+  - tags
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: datetime
+  - git-committers:
+      repository: CUHKSZ-ITSO-Dev/ChatGPT-Azure
+      branch: main
+      docs_path: dev/docs/
+
+markdown_extensions:
+  # 高级功能通用组件
+  # 包括 Admonitions 警告组件，Annotations 注释组件，Buttons 按钮组件，Grids 网格组件，Emoji 支持
+  - pymdownx.superfences:
+      custom_fences:
+        # Mermaid Diagrams 支持
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - attr_list
+  - md_in_html
+  # Admonitions 警告组件
+  - admonition
+  - pymdownx.details
+  # Code Blocks 代码块支持
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # Content Tabs 内容标签支持
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Data Tables 表格支持
+  - tables
+  # Footnotes 脚注支持
+  - footnotes
+  # Formatting 格式化支持
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  # Emojis 表情支持
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator:
+        !!python/name:material.extensions.emoji.to_svg # Images 图片支持
+
+
+  - pymdownx.blocks.caption
+  # Lists 列表支持
+  - def_list
+  # Latex 支持 （基于MathJax）
+  - pymdownx.arithmatex:
+      generic: true
+  # Tooltips 工具提示支持
+  - abbr
+  # Task Lists 任务列表支持
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  # Latex 支持 （基于MathJax）
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - 首页: "index.md"
+  - 对话服务:
+    - "main/index.md"
+    - "快速开始": "main/quick-start.md"
+    - 初始化流程: "main/init.md"
+    - 登录与SSO认证: "main/sso.md"
+    - 多语言支持: "main/i18n.md"
+    - Action配置: "main/action-add_tokens.md"
+    - 后端:
+      - 概述: "main/chat/index.md"
+      - 对话消息: "main/chat/messages.md"
+      - 前端消息逻辑: "main/chat/msgFlowInFrontend.md"
+      - Approach 模型: "main/chat/approach.md"
+      - 工具调用: "main/chat/toolCall.md"
+      - 其他交互功能: "main/chat/otherFunctions.md"
+      - 对话标题生成: "main/chat/titleGeneration.md"
+      - 计费模块: "main/chat/pricing.md"
+      - 监控数据统计: "main/chat/statistics.md"
+    - 前端:
+      - "介绍": "frontend/index.md"
+      - "快速开始": "frontend/getting-started.md"
+      - "项目目录结构": "frontend/project-structure.md"
+      - "消息生命周期详解": "frontend/message-lifecycle.md"
+      - "登录页应用说明": "frontend/login-page.md"
+      - "国际化 (i18n) 使用指南": "frontend/i18n.md"
+      - Hook 开发指南:
+          - "Hook 概述": "frontend/hooks-overview.md"
+          - "认证管理 (useAuth)": "frontend/hooks-auth.md"
+          - "主题切换 (useTheme)": "frontend/hooks-theme.md"
+          - "聊天功能 (useChat)": "frontend/hooks-chat.md"
+          - "语料库管理 (useKnowledge)": "frontend/hooks-knowledge.md"
+          - "事件总线 (useEventBus)": "frontend/hooks-event-bus.md"
+          - "配置管理 (useConfig)": "frontend/hooks-config.md"
+          - "移动端适配 (useMobile)": "frontend/hooks-mobile.md"
+          - "开发最佳实践": "frontend/hooks-best-practices.md"
+  - 统一鉴权:
+    - "首页": "uniauth/index.md"
+    - "快速开始": "uniauth/getting-started.md"
+    - "UniAuth Admin": "uniauth/frontend.md"
+    - "UniAuth GoFrame": "uniauth/backend.md"
+    - "Casbin": "uniauth/casbin.md"
+    - "管理员手册": "uniauth/management.md"
+    - SDK（Python）:
+      - 概览: "uniauth-sdk/index.md"
+      - 快速开始: "uniauth-sdk/quickstart.md"
+      - 客户端与配置: "uniauth-sdk/configuration.md"
+      - API 参考: "uniauth-sdk/api-reference.md"
+      - 装饰器与缓存: "uniauth-sdk/decorators-and-cache.md"
+      - 接口变更与升级: "uniauth-sdk/change-management.md"
+      - 错误与调试: "uniauth-sdk/errors-and-debug.md"
+      - 最佳实践: "uniauth-sdk/best-practices.md"
+  - 集群管理:
+    - "Kubernetes/index.md"
+    - 快速开始: "Kubernetes/getting-started.md"
+    - 架构与配置清单:
+        - "架构速览": "Kubernetes/architecture/cluster.md"
+        - "配置清单说明": "Kubernetes/architecture/details.md"
+        - "网络": "Kubernetes/architecture/network.md"
+    - GitOps:
+        - ArgoCD: "Kubernetes/gitops/argocd.md"
+    - 安全:
+        - 审计: "Kubernetes/security/audit.md"
+        - 秘密管理: "Kubernetes/security/secrets-management.md"
+        - WireGuard 加密: "Kubernetes/security/wireguard.md"
+    - GPU与显卡资源部署:
+        - vLLM: "Kubernetes/gpu/vllm.md"
+  - 语料库:
+    - knowledge/index.md
+    - "一切的开始：需求文档": "knowledge/requirements_zh.md"
+    - "高维度视角": "knowledge/knowledge_high_level_zh.md"
+    - "你需要了解RAG": "knowledge/rag_ms_intro_zh.md"
+    - "详细文档": "knowledge/knowledge_detailed_zh.md"
+    - "助手实现": "knowledge/knowledge_assistants_zh.md"
+    - "权限协作": "knowledge/permissions_cooperation_zh.md"
+    - "测试指南": "knowledge/testing_guide_zh.md"
