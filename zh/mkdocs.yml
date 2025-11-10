@@ -1,0 +1,167 @@
+site_name: 大学GPT服务文档
+dev_addr: 127.0.0.1:5547
+copyright: Copyright &copy; 2024-2025 香港中文大学（深圳）
+
+docs_dir: "docs"
+site_url: "https://testopenai-dev03.cuhk.edu.cn/docs/dev/"
+repo_url: https://github.com/cuhksz-itso-dev/docs
+repo_name: CUHKSZ-ITSO-Dev/Docs
+edit_uri: edit/main/dev/docs/
+
+theme:
+  name: material
+  language: zh
+  icon:
+    annotation: material/arrow-right-circle
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.footer
+    - navigation.path
+    - toc.follow
+    - navigation.top
+    - navigation.sections
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tabs
+    - content.tabs.link
+    - content.code.copy
+    - header.autohide
+
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 自动调整
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: deep-purple
+      accent: purple
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: 明亮
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: black
+      accent: purple
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: 黑暗
+
+extra:
+  generator: false
+  alternate:
+    - name: 简体中文
+      link: /docs/zh/
+      lang: zh
+    - name: English
+      link: /docs/en/
+      lang: en
+  version:
+    provider: mike
+
+plugins:
+  - search:
+      lang:
+        - en
+        - ja
+  - blog:
+      archive_date_format: MMMM yyyy
+      categories_allowed:
+        - Holidays
+        - News
+        - Test
+      blog_toc: true
+      post_excerpt_max_authors: 6
+  - tags
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: date
+  - git-committers:
+      repository: CUHKSZ-ITSO-Dev/ChatGPT-Azure
+      branch: Release-20251001
+      docs_path: "docs/docs/zh/"
+
+markdown_extensions:
+  # 高级功能通用组件
+  # 包括 Admonitions 警告组件，Annotations 注释组件，Buttons 按钮组件，Grids 网格组件，Emoji 支持
+  - pymdownx.superfences:
+      custom_fences:
+        # Mermaid Diagrams 支持
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - attr_list
+  - md_in_html
+  # Admonitions 警告组件
+  - admonition
+  - pymdownx.details
+  # Code Blocks 代码块支持
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  # Content Tabs 内容标签支持
+  - pymdownx.tabbed:
+      alternate_style: true
+  # Data Tables 表格支持
+  - tables
+  # Footnotes 脚注支持
+  - footnotes
+  # Formatting 格式化支持
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  # Emojis 表情支持
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator:
+        !!python/name:material.extensions.emoji.to_svg # Images 图片支持
+
+
+  - pymdownx.blocks.caption
+  # Lists 列表支持
+  - def_list
+  # Latex 支持 （基于MathJax）
+  - pymdownx.arithmatex:
+      generic: true
+  # Tooltips 工具提示支持
+  - abbr
+  # Task Lists 任务列表支持
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_javascript:
+  # Latex 支持 （基于MathJax）
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/anime.iife.min.js
+  - javascripts/home-page.js
+
+nav:
+  - 首页: "index.md"
+  - 用户使用手册:
+      - 快速开始: "manual/getting-started.md"
+      - 对话: "manual/chat.md"
+      - 个人中心: "manual/account.md"
+      - 配额池: "manual/quota.md"
+  - 语料库操作手册 (Beta):
+      - 快速开始: "knowledge/index.md"
+      - 上传指南: "knowledge/upload-guide.md"
+      - 内容管理: "knowledge/content-and-nodes-guide.md"
+      - AI调优: "knowledge/retrieval-optimization-guide.md"
+      - 权限管理: "knowledge/permission-guide.md"
+      - 常见问题: "knowledge/faq.md"
+  - 模型信息: "models.md"
+  - 加入我们: "ad/index.md"
